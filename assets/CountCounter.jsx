@@ -1,18 +1,13 @@
 import React, { useState } from "react"
-import DisplayTime from "./DisplayTime.jsx";
 
-function CountCounter({ step, setStep }) {
-    const [count, setCount] = useState(0)
+function CountCounter({ step, count, setCount }) {
 
     return (
-    <>
         <div className={'counter-box'}>
             <button onClick={()=>setCount(c=>c-step)} style={{backgroundColor: 'white', color: 'black'}}>-</button>
-            <input onChange={(e)=>setCount(Number(e.target.value)+step)}/>
+            <input type='text' value={count} onChange={(e)=>setCount(Number(e.target.value)+step)}/>
             <button onClick={()=>setCount(c => c + step)} style={{backgroundColor: 'white', color: 'black'}}>+</button>
         </div>
-        <DisplayTime setCount={setCount} setStep={setStep} count={count} />
-    </>
     )
 }
 

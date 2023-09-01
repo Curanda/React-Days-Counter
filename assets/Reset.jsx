@@ -1,12 +1,10 @@
 import React from "react"
 
-function Reset({ setStep, setCount }) {
-
+export default function StepCounter({ step, setStep }) {
     return (
-    <>
-        <button onClick={(e)=>{setStep(1); setCount(0)}} style={{backgroundColor: "white", color: 'black'}}>Reset</button>
-    </>
+        <div className={'counter-box'}>
+            <input type={'range'} min={0} max={10} value={step} onChange={(e)=>setStep(Number(e.target.value))}/>
+            <p>{step}</p>
+        </div>
     )
 }
-
-export default Reset
